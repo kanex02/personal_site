@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Kane Xie</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./style.css">
+        
+        
+    </head>
+    <body>
+        <div id="page">
+            <div id="home" class="pane">
+                <nav id="nav">
+                    <ul>
+                        <li onclick="scrollPage(1)">ABOUT</li>&nbsp;|
+                        <li onclick="scrollPage(2)">PORTFOLIO</li>&nbsp;|
+                        <li onclick="scrollPage(3)">CONTACT</li>
+                    </ul>
+                </nav>
+                <div id="instructions">
+                    <div id="instructionsText">
+                    <p>Press</p>
+                    <strong>A</strong>
+                    <div id="higher"><strong>W</strong></div>
+                    <strong>D</strong>
+                    <p>or</p>
+                    <strong>←</strong>
+                    <div id="higher"><strong>↑</strong></div>
+                    <strong>→</strong>
+                    <p>to move</p>
+                    </div>
+                </div>
+                <h1>KANE XIE</h1>
+            </div>
+            <div id="about" class="pane">
+                <h1>ABOUT</h1>
+            </div>
+            <div id="portfolio" class="pane">
+                <h1>PORTFOLIO</h1>
+            </div>
+            <div id="contact" class="pane">
+                <h1>CONTACT</h1>
+            </div>
+        </div>
+        <div id="foreground"><img src="./grass_120120171.svg" id="grass"/></div>
+        <div id="background"><img src="./grass_120120171.svg" id="grass"/></div>
+        <div id="player">🐷</div>
+        <script src="./game.js"></script>
+    </body>
+
+</html>

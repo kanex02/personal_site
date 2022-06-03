@@ -1,0 +1,157 @@
+* { 
+    margin:0; padding:0; 
+}
+
+html { 
+    width:100%; height:100%; 
+    overflow: hidden;
+    user-select: none;
+}
+
+body { 
+    width:100%; height:100%; 
+    overflow: visible;
+}
+
+canvas { 
+    display:block; 
+}
+
+#player {
+    position: fixed;
+    font-size: 90px;
+    z-index: 50;
+}
+
+#foreground {
+    position: fixed;
+    font-size: 120px;
+    top: 100vh;
+    left: 50vw;
+    transform: translate(-50%, -70%);
+    width: 110vw;
+    text-align: center;
+    z-index: 99;
+    
+    pointer-events: none;
+}
+
+#foreground #grass {
+    width: 110vw;
+}
+
+#background {
+    position: fixed;
+    font-size: 120px;
+    top: 100vh;
+    left: 50vw;
+    transform: translate(-50%, -75%) scaleX(-1);
+    width: 110vw;
+    text-align: center;
+    
+    pointer-events: none;
+}
+
+#background #grass {
+    width: 110vw;
+}
+
+#page {
+    height: 100vh;
+    width: 100%;
+    overflow: visible;
+}
+
+.pane {
+    background: linear-gradient(180deg, rgb(83, 217, 241) 0%, rgb(0, 135, 197) 100%);
+    background-size: cover;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+}
+
+#page #home {
+    left: 0;
+}
+
+#page #home nav {
+    position: relative;
+    margin: 3rem;
+    font-size: 2rem;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#page #home nav ul li {
+    display: inline-block;
+    cursor: pointer;
+}
+
+#page #home nav ul li:hover{
+    color: rgb(207, 231, 98);
+}
+
+#page #home h1 {
+    position: absolute;
+    top: 48vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    color:white;
+    font-size: 6rem;
+    text-align: center;
+    z-index: 49;
+}
+
+#page #home #higher {
+    transform: translateY(-50%);
+    display: inline-block;
+}
+
+#page #home strong {
+    position: relative;
+}
+
+#page #home #instructions {
+    margin-left: 10%;
+    position: absolute;
+    bottom: 14vw;
+    background-color: rgba(146, 146, 146, 0.5);
+    height: 3.4rem;
+    width: 21rem;
+    border-radius: 3px;
+    z-index: 1;
+}
+
+#page #home #instructionsText {
+    font-size: 1.2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    white-space: nowrap;
+}
+
+#page #home #instructionsText strong {
+    color: white;
+    width: 1rem;
+}
+
+#page #home #instructionsText p {
+    display: inline-block;
+    color: rgb(226, 226, 226);
+    font-size: 1.4rem;
+}
+
+#page #about {
+    left: 100vw;
+}
+
+#page #portfolio {
+    left: 200vw
+}
+
+#page #contact {
+    left: 300vw
+}
