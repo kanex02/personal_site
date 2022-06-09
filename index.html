@@ -6,7 +6,7 @@
         <title>Kane Xie</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Playfair+Display&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./style.css">
         
         
@@ -17,8 +17,7 @@
                 <nav id="nav">
                     <ul>
                         <li onclick="scrollPage(1)">ABOUT</li>&nbsp;|
-                        <li onclick="scrollPage(2)">PORTFOLIO</li>&nbsp;|
-                        <li onclick="scrollPage(3)">CONTACT</li>
+                        <li onclick="scrollPage(2)">PORTFOLIO</li>
                     </ul>
                 </nav>
                 <div id="instructions">
@@ -35,20 +34,35 @@
                     </div>
                 </div>
                 <h1>KANE XIE</h1>
+                <img id="barn" src="./Rfc1394_Red_barn.svg"/>
             </div>
             <div id="about" class="pane">
-                <h1>ABOUT</h1>
+                <div id="aboutText">
+                    <h1>ABOUT</h1>
+                    <p>Heya! My name is Kane Xie, currently a Software Engineering student at the University of Canterbury. My passions are mathematics, music, and studying interactive design (gaming), which often provide unique insights into problems. My most comfortable languages are Python, Javascript, and Java.</p>
+                    <br/>
+                    <p>This website was made in native Javascript, HTML, and CSS. When a movement key is pressed, the velocity of the player is set. The player's position is then modified by the velocity every frame, after which the velocity is decreased, resulting in smooth movement with little effort. In addition, the severely underused 'z-index' CSS property is used to layer objects such as the player and grass. All SVG images were taken from the excellent <a href="https://www.freesvg.org" target="blank">freesvg.org</a>.</p>
+                    <br/>
+                    <p>I can be found at my <a href="https://www.linkedin.com/in/kane-xie-a3143823b" target="_blank">LinkedIn</a>. Alternatively, feel free to send me an email at <a id="email">kanexie04@gmail.com</a>.</p>
+                    <br/>
+                    <p>God bless,</p>
+                    <p>Kane</p>
+                </div>
             </div>
             <div id="portfolio" class="pane">
-                <h1>PORTFOLIO</h1>
-            </div>
-            <div id="contact" class="pane">
-                <h1>CONTACT</h1>
+                <div id="portfolioText">
+                    <h1>THINGS I'VE DONE</h1>
+                    <ul>
+                        <li>Burnside High School's athletics sign up page</li>
+                        <li><a href="https://leetcode.com/kanexie04/">LeetCode</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div id="foreground"><img src="./grass_120120171.svg" id="grass"/></div>
-        <div id="background"><img src="./grass_120120171.svg" id="grass"/></div>
-        <div id="player">🐷</div>
+        <div id="foreground" class="fixed"><img src="./grass_120120171.svg" id="grass"/></div>
+        <div id="background" class="fixed"><img src="./grass_120120171.svg" id="grass"/></div>
+        <div id="player" class="fixed">🐷</div>
+        <p id="alert" class="fixed"></p>
         <script src="./game.js"></script>
     </body>
 
