@@ -1,19 +1,3 @@
-emailLink = document.getElementById('email')
-emailLink.addEventListener("click", copyThis)
-emailLink.value = 'kanexie04@gmail.com'
-
-function copyThis(e) {
-    navigator.clipboard.writeText(e.currentTarget.value)
-
-    alert = document.getElementById('alert')
-    alert.style.left = e.clientX+'px'
-    alert.style.top = e.clientY+'px'
-    alert.innerHTML = 'Copied!'
-    alert.style.display = 'block'
-    setTimeout(() => {alert.style.display = 'none'}, 500)
-}
-
-
 /*Interactive code below*/
 const speed = 15,
     gravity = 2;
@@ -29,7 +13,8 @@ var size = 130,
     jumps = 2,
     scrollLocked = true,
     scrollSpeed = 0
-    clone = undefined;
+    clone = undefined
+    active = true;
 
 function scrollPage(id) {
     scrollLocked = true
@@ -111,54 +96,59 @@ function copyInstructions(e) {
 }
 
 function gameLoop() {
-    var div = document.getElementById("player")
-    size = window.innerHeight/10
-    if (x + dx > window.innerWidth - 2*size) {
-        x = window.innerWidth - 2*size
-        dx = 0
-    } else if (x + dx < 0.5*size) {
-        x = 0.5*size
-        dx = 0
+    active = window.innerWidth >= 900
+    if (active) {
+        var div = document.getElementById("player")
+        size = window.innerHeight/10
+        if (x + dx > window.innerWidth - 2*size) {
+            x = window.innerWidth - 2*size
+            dx = 0
+        } else if (x + dx < 0.5*size) {
+            x = 0.5*size
+            dx = 0
+        } else {
+            x = x + dx
+        }
+
+        if (y + dy > window.innerHeight - 1.2*size) {
+            y = window.innerHeight - 1.2*size
+            dy = -dy*0.5
+            jumps = 2
+        } else if (y + dy < 0.5*size) {
+            y = 0.5*size
+            dy = 0
+        } else {
+            y = y + dy
+        }
+
+        if (x+size > window.innerWidth*0.85) {
+            scrollSpeed = speed
+        }
+
+        if (x-size < window.innerWidth*0.05) {
+            scrollSpeed = -speed
+        }
+
+        if (!scrollLocked && Math.abs(scrollSpeed) > 1) {
+            window.scrollBy(scrollSpeed, 0)
+        }
+        
+        scrollSpeed = scrollSpeed*0.9
+
+        dx = dx * 0.92
+        dy = dy + gravity
+
+        if (right) {
+            dx = speed
+        }
+        if (left) {
+            dx = -speed
+        }
+        div.style.left = x+'px'
+        div.style.top = y+'px'
     } else {
-        x = x + dx
+        window.scrollTo(0, 0)
     }
-
-    if (y + dy > window.innerHeight - 1.2*size) {
-        y = window.innerHeight - 1.2*size
-        dy = -dy*0.5
-        jumps = 2
-    } else if (y + dy < 0.5*size) {
-        y = 0.5*size
-        dy = 0
-    } else {
-        y = y + dy
-    }
-
-    if (x+size > window.innerWidth*0.85) {
-        scrollSpeed = speed
-    }
-
-    if (x-size < window.innerWidth*0.05) {
-        scrollSpeed = -speed
-    }
-
-    if (!scrollLocked && Math.abs(scrollSpeed) > 1) {
-        window.scrollBy(scrollSpeed, 0)
-    }
-    
-    scrollSpeed = scrollSpeed*0.9
-
-    dx = dx * 0.92
-    dy = dy + gravity
-
-    if (right) {
-        dx = speed
-    }
-    if (left) {
-        dx = -speed
-    }
-    div.style.left = x+'px'
-    div.style.top = y+'px'
     window.requestAnimationFrame(gameLoop)
 }
 window.requestAnimationFrame(gameLoop)
